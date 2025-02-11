@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master  # Change this if your default branch is different
+  workflow_dispatch:  # Allows manual trigger
 
 jobs:
   build-and-deploy:
@@ -35,4 +36,4 @@ jobs:
         with:
           branch: gh-pages
           folder: dist/daily-food-tracker/browser
-          token: ${{ secrets.GH_PAT }}  # Use the new PAT secret
+          token: ${{ secrets.GH_PAT }}  # Use your Personal Access Token
