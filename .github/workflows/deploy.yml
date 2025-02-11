@@ -34,4 +34,5 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
-          folder: dist/daily-food-tracker/browser  # Adjust this path if necessary
+          folder: dist/daily-food-tracker/browser
+          token: ${{ secrets.GH_PAT }}  # Use the new PAT secret
