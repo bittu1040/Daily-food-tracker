@@ -29,9 +29,9 @@ jobs:
      
       - name: Debug Build Output
         run: ls -R dist/daily-food-tracker
-        
+
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
-          folder: dist/Daily-food-tracker/browser  # Adjust this path if necessary
+          folder: dist/Daily-food-tracker  # Adjust this path if necessary
