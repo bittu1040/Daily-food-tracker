@@ -1,43 +1,10 @@
-<header class="bg-primary text-white text-center py-3">
-    <h1>Daily Food Tracker</h1>
-	<a href="https://github.com/bittu1040/Daily-food-tracker" class="text-white" target="_blank">Contribute on GitHub</a>
-
-</header>
-<main class="container my-4">
-    <section id="add-food" class="mb-4">
-        <h2 class="mb-3">Add Food Item</h2>
-        <form id="food-form" class="row g-3">
-            <div class="col-md-4">
-                <label for="food-name" class="form-label">Food Name:</label>
-                <input type="text" id="food-name" name="food-name" class="form-control" required>
-            </div>
-            <div class="col-md-4">
-                <label for="calories" class="form-label">Calories:</label>
-                <input type="number" id="calories" name="calories" class="form-control" required>
-            </div>
-            <div class="col-md-4">
-                <label for="date" class="form-label">Date:</label>
-                <input type="date" id="date" name="date" class="form-control" required>
-            </div>
-            <div class="col-12">
-                <button type="submit" class="btn btn-primary">Add Food</button>
-            </div>
-        </form>
-    </section>
-    <section id="food-list">
-        <h2 class="mb-3">Tracked Food Items (List)</h2>
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Food Name</th>
-                    <th>Calories</th>
-                    <th>Date</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Food items will be dynamically added here -->
-            </tbody>
-        </table>
-    </section>
-</main>
-<router-outlet />
+<div id="app-root" [attr.data-theme]="isDarkTheme ? 'dark' : 'light'">
+    <nav class="nav-bar">
+        <button class="theme-toggle" (click)="toggleTheme()">
+            {{ isDarkTheme ? '🌞' : '🌙' }}
+        </button>
+    </nav>
+    <div style="height: calc(100vh - 85px);">
+        <router-outlet></router-outlet>
+    </div>
+</div>

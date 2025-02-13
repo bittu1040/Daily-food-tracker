@@ -1,4 +1,36 @@
-/* You can add global styles to this file, and also import other style files */
-
 /* Importing Bootstrap SCSS file. */
 @use 'bootstrap';
+
+:root {
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --input-bg: #f5f5f5;
+    --card-bg: #ffffff;
+    --nav-bg: #e7e4e4;  // make this as card-bg color, and observe box shadow is not working
+    --nav-shadow: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] {
+    --bg-color: #1a1a1a;
+    --text-color: #ffffff;
+    --input-bg: #333333;
+    --card-bg: #2d2d2d;
+    --nav-bg: #2d2d2d;
+    --nav-shadow: rgba(255, 255, 255, 0.1);
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+#app-root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
