@@ -29,3 +29,8 @@
     border-color: var(--primary-color);
     box-shadow: 0 0 5px var(--primary-color);
 }
+
+.form-control::placeholder {
+    color: var(--text-color);
+    opacity: 0.5;
+}

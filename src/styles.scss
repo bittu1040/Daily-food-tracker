@@ -1,15 +1,16 @@
 @use 'bootstrap';
 
-:root {
-    --primary-color: #007bff;
-    --background-color: #ffffff;
-    --text-color: #000000;
-}
-
-.dark-theme {
+:root {  // default dark theme
     --primary-color: #ff5722;
     --background-color: #333333;
     --text-color: #ffffff;
+}
+
+.light-theme {
+    --primary-color: #1877F2;
+    --background-color: #ffffff;
+    --text-color: #000000;
+
 }
 
 /* Apply colors globally */

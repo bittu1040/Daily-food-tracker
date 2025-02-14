@@ -8,10 +8,10 @@ import { Component } from '@angular/core';
 })
 export class NavBarComponent {
 
-  isDarkTheme = false;
+  isLightTheme = false;
 
   toggleTheme() {
-    this.isDarkTheme = !this.isDarkTheme;
-    document.body.classList.toggle('dark-theme', this.isDarkTheme);
+    this.isLightTheme = !this.isLightTheme;
+    document.body.classList.toggle('light-theme', this.isLightTheme);
   }
 }
