@@ -1,28 +1,31 @@
-/* Importing global styles */
-@use '../../../styles' as *;
-
-:host {
-    display: block;
-    height: 100%;
-    background-color: var(--bg-color);
-    color: var(--text-color);
-}
-
 .card {
-    background-color: var(--card-bg);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    border: 1px solid var(--primary-color);
+}
+
+.card-header {
+    background-color: var(--primary-color);
     color: var(--text-color);
 }
 
-.login-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
+.btn {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    border: none;
 }
 
-.login-card {
-    background-color: var(--card-bg);
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.btn:hover {
+    opacity: 0.8;
+}
+
+.form-control {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    border: 1px solid var(--primary-color);
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px var(--primary-color);
 }
