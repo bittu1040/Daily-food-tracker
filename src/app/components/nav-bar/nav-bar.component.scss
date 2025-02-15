@@ -1,6 +1,6 @@
 .navbar {
-    background-color: var(--dynamic-primary-color);
-    color: var(--dynamic-text-color);
+    background-color: var(--dynamic-primary-color) !important;
+    color: var(--dynamic-text-color) !important;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 

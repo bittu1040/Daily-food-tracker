@@ -1,7 +1,7 @@
 .card {
-    background-color: var(--dynamic-background-color);
+    background-color: var(--dynamic-bg-color);
     color: var(--dynamic-text-color);
-    border: 1px solid var(--dynamic-text-color);
+    border: 1px solid var(--dynamic-primary-color);
     box-shadow: 0 0 15px var(--dynamic-text-color);
 }
 

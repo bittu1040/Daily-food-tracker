@@ -14,6 +14,7 @@ export class NavBarComponent {
     this.isLightTheme = !this.isLightTheme;
     document.body.classList.toggle('light-theme', this.isLightTheme);
   }
+
   changeColor(event: Event) {
     const inputElement = event.target as HTMLInputElement;
     const selectedColor = inputElement.value;
@@ -22,37 +23,58 @@ export class NavBarComponent {
     // Generate a beautiful color combination
     const colorCombination = this.generateColorCombination(selectedColor);
 
+    // Safeguard: If primary and text colors are identical, adjust text color slightly.
+    let textColor = colorCombination.text;
+    if (textColor.toLowerCase() === colorCombination.primary.toLowerCase()) {
+      const [h, s, l] = this.hexToHsl(textColor);
+      textColor = this.adjustColor(textColor, l > 50 ? -20 : 20);
+    }
+
     // Apply the generated colors to CSS variables
     document.documentElement.style.setProperty('--dynamic-primary-color', colorCombination.primary);
     document.documentElement.style.setProperty('--dynamic-bg-color', colorCombination.background);
-    document.documentElement.style.setProperty('--dynamic-text-color', colorCombination.text);
+    document.documentElement.style.setProperty('--dynamic-text-color', textColor);
   }
 
   generateColorCombination(baseColor: string): { primary: string, background: string, text: string } {
     const hsl = this.hexToHsl(baseColor);
     
-    // Generate triadic color scheme
+    // Use the base color as primary.
     const primaryColor = baseColor;
-    const backgroundColor = this.hslToHex([(hsl[0] + 120) % 360, hsl[1], hsl[2]]);
-    const textColor = this.hslToHex([(hsl[0] + 240) % 360, hsl[1], hsl[2] > 50 ? hsl[2] - 40 : hsl[2] + 40]);
+    // Create a background color by rotating the hue 180°.
+    const backgroundColor = this.hslToHex([(hsl[0] + 180) % 360, hsl[1], hsl[2]]);
+    // Choose a text color based on contrast with the background.
+    const textColor = this.chooseContrastText(backgroundColor);
 
     return {
-        primary: primaryColor,
-        background: backgroundColor,
-        text: textColor
+      primary: primaryColor,
+      background: backgroundColor,
+      text: textColor
     };
-}
+  }
 
-  getComplementaryColor(hex: string): string {
-    // Remove the hash at the start if it's there
+  /**
+   * Returns either black or white depending on the luminance of the provided color.
+   */
+  chooseContrastText(hex: string): string {
     hex = hex.replace(/^#/, '');
-
-    // Parse the r, g, b values
     const r = parseInt(hex.substring(0, 2), 16);
     const g = parseInt(hex.substring(2, 4), 16);
     const b = parseInt(hex.substring(4, 6), 16);
 
-    // Calculate the complementary color by inverting RGB
+    // Calculate the relative luminance of the color.
+    const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+
+    // For light backgrounds, return black. For dark backgrounds, return white.
+    return luminance > 0.5 ? '#000000' : '#ffffff';
+  }
+
+  getComplementaryColor(hex: string): string {
+    hex = hex.replace(/^#/, '');
+    const r = parseInt(hex.substring(0, 2), 16);
+    const g = parseInt(hex.substring(2, 4), 16);
+    const b = parseInt(hex.substring(4, 6), 16);
+
     const complementaryR = (255 - r).toString(16).padStart(2, '0');
     const complementaryG = (255 - g).toString(16).padStart(2, '0');
     const complementaryB = (255 - b).toString(16).padStart(2, '0');
@@ -61,20 +83,15 @@ export class NavBarComponent {
   }
 
   adjustColor(hex: string, amount: number): string {
-    // Remove the hash at the start if it's there
     hex = hex.replace(/^#/, '');
-
-    // Parse the r, g, b values
     let r = parseInt(hex.substring(0, 2), 16);
     let g = parseInt(hex.substring(2, 4), 16);
     let b = parseInt(hex.substring(4, 6), 16);
 
-    // Adjust the r, g, b values
     r = Math.min(255, Math.max(0, r + amount));
     g = Math.min(255, Math.max(0, g + amount));
     b = Math.min(255, Math.max(0, b + amount));
 
-    // Return the adjusted color
     return `#${r.toString(16).padStart(2, '0')}${g.toString(16).padStart(2, '0')}${b.toString(16).padStart(2, '0')}`;
   }
 
