@@ -1,17 +1,18 @@
 .card {
-    background-color: var(--background-color);
-    color: var(--text-color);
-    border: 1px solid var(--primary-color);
+    background-color: var(--dynamic-background-color);
+    color: var(--dynamic-text-color);
+    border: 1px solid var(--dynamic-text-color);
+    box-shadow: 0 0 15px var(--dynamic-text-color);
 }
 
 .card-header {
-    background-color: var(--primary-color);
-    color: var(--text-color);
+    background-color: var(--dynamic-primary-color);
+    color: var(--dynamic-text-color);
 }
 
 .btn {
-    background-color: var(--primary-color);
-    color: var(--text-color);
+    background-color: var(--dynamic-primary-color);
+    color: var(--dynamic-text-color);
     border: none;
 }
 
@@ -20,17 +21,18 @@
 }
 
 .form-control {
-    background-color: var(--background-color);
-    color: var(--text-color);
-    border: 1px solid var(--primary-color);
+    background-color: var(--dynamic-background-color);
+    color: var(--dynamic-text-color);
+    border: 1px solid var(--dynamic-primary-color);
+    opacity: 0.8;
 }
 
 .form-control:focus {
-    border-color: var(--primary-color);
-    box-shadow: 0 0 5px var(--primary-color);
+    border-color: var(--dynamic-primary-color);
+    box-shadow: 0 0 5px var(--dynamic-primary-color);
 }
 
 .form-control::placeholder {
-    color: var(--text-color);
+    color: var(--dynamic-text-color);
     opacity: 0.5;
 }

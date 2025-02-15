@@ -1,22 +1,27 @@
 @use 'bootstrap';
 
 :root {  // default dark theme
-    --primary-color: #ff5722;
+    --primary-color: #1e1818;
     --background-color: #333333;
-    --text-color: #ffffff;
+    --text-color: #fdd700;
+    --dynamic-primary-color: var(--primary-color);
+    --dynamic-bg-color: var(--background-color);
+    --dynamic-text-color: var(--text-color);
 }
 
 .light-theme {
     --primary-color: #1877F2;
     --background-color: #ffffff;
     --text-color: #000000;
-
+    --dynamic-primary-color: var(--primary-color);
+    --dynamic-bg-color: var(--background-color);
+    --dynamic-text-color: var(--text-color);
 }
 
 /* Apply colors globally */
 body {
-    background-color: var(--background-color);
-    color: var(--text-color);
+    background-color: var(--dynamic-bg-color);
+    color: var(--dynamic-text-color);
     margin: 0;
     font-family: Arial, sans-serif;
 }
@@ -25,5 +30,5 @@ app-root {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-color: var(--background-color);
+    background-color: var(--dynamic-bg-color);
 }
