@@ -7,7 +7,7 @@
 
 .card-body{
     background-color: var(--dynamic-primary-color);
-    opacity: 0.8;
+    opacity: 0.9;
 }
 
 .card-header {
@@ -16,8 +16,8 @@
 }
 
 .btn {
-    background-color: var(--dynamic-primary-color);
-    color: var(--dynamic-text-color);
+    // background-color: var(--dynamic-primary-color);
+    // color: var(--dynamic-text-color);
 }
 
 .btn:hover {
@@ -27,8 +27,8 @@
 .form-control {
     background: var(--dynamic-bg-color);
     color: var(--dynamic-text-color);
-    border: 1px solid var(--dynamic-primary-color);
-    opacity: 0.8;
+    border: 1px solid var(--dynamic-text-color);
+    opacity: 0.5;
 }
 
 .form-control:focus {
