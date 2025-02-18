@@ -4,6 +4,7 @@ import { AuthService } from '../../services/auth.service';
 import { Router, RouterLink } from '@angular/router';
 import { NgIf } from '@angular/common';
 import { LoadingService } from '../../services/loading.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -18,6 +19,7 @@ export class LoginComponent {
   router = inject(Router);
   loading = false;
   loadingService = inject(LoadingService);
+  toastr = inject(ToastrService);
 
   constructor() {
     this.loginForm = this.fb.group({
@@ -40,10 +42,12 @@ export class LoginComponent {
           next: (response) => {
             // this.loading = false;
             this.loadingService.hide();
+            this.toastr.success('Login successful');
             this.router.navigate(['/dashboard']);
           },
           error: (error) => {
             this.loadingService.hide();
+            this.toastr.error(error.error.message);
             // this.loading = false;
             console.log(error);
           }

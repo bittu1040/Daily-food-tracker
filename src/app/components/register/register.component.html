@@ -1,1 +1,34 @@
-<p>register works!</p>
+<div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="text-center">Register</h3>
+                    </div>
+                    <div class="card-body">
+                        <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+                            <div class="mb-3">
+                                <label for="name">Name</label>
+                                <input type="text" class="form-control" formControlName="name" placeholder="Enter your name">
+                            </div>
+                            <div class="mb-3">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control" formControlName="email" placeholder="Enter your email">
+                            </div>
+                            <div class="mb-3">
+                                <label for="password">Password</label>
+                                <input type="password" class="form-control" formControlName="password" placeholder="Enter your password">
+                            </div>
+                            <button type="submit" class="btn w-100" [disabled]="registerForm.invalid">Register</button>
+                        </form>
+                        <div class="text-center mt-3">
+                            <span>Already have an account?</span>
+                            <a routerLink="/login" class="btn mx-2">Login</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
