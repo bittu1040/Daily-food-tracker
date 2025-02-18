@@ -1,59 +1,76 @@
-# DailyFoodTracker
+#  Daily Food Tracker
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.6.
+## Features
 
-## Development server
+- **Food Logging:** Users can log meals with details like food name, serving size, calories, protein, carbs, and fats.
+- **Dashboard Overview:** Displays daily/weekly calorie intake and macronutrient breakdown.
+- **Search & Autocomplete:** Helps users find food items quickly.
+- **User Profiles & Goals:** Users can set daily calorie and macronutrient goals.
+- **History & Trends:** View past logs and trends over time.
+- **Mobile-Friendly UI:** Designed with responsiveness in mind.
+- **Quick Logging:** Users can quickly add frequent meals.
+- **Validation & Feedback:** Inline validation for a smooth experience.
+- **Progress Visualization:** Charts for nutrient breakdown.
+- **Dark Mode:** Toggle between light and dark mode.
 
-To start a local development server, run:
+## Architecture and Best Practices
 
-```bash
+### Component-Based Structure
+
+- **DashboardComponent:** Displays statistics and progress.
+- **FoodLogComponent:** Form for adding and editing food logs.
+- **FoodListComponent:** Shows the list of logged foods.
+- **UserProfileComponent:** Manages user goals and preferences.
+- **Shared Components:** Reusable UI components (modals, alerts, forms).
+
+### Services
+
+- **FoodService:** Manages food-related API calls.
+- **UserService:** Handles user authentication and preferences.
+- **NotificationService:** Provides in-app alerts and messages.
+
+### State Management
+
+- Uses **RxJS BehaviorSubject** for reactive data handling.
+- Future scope: **NgRx or Akita** for complex state management.
+
+## Installation & Setup
+
+### Prerequisites
+
+- **Node.js & npm** installed
+- **Angular CLI** installed
+
+### Steps
+
+```sh
+# Clone the repository
+git clone https://github.com/your-repo/daily-food-tracker.git
+cd daily-food-tracker
+
+# Install dependencies
+npm install
+
+# Run the development server
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+### Environment Configuration
 
-## Code scaffolding
+Set up the environment file (`src/environments/environment.ts`):
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+```typescript
+export const environment = {
+  production: false,
+  apiUrl: 'https://your-api-url.com'
+};
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Contributions & Future Enhancements
 
-```bash
-ng generate --help
-```
+- **Implement Barcode Scanning:** Enable easy food tracking.
+- **AI-Based Meal Recommendations:** Suggest meals based on user history.
+- **Multi-User Support:** Add authentication for multiple users.
+- **Custom Food Entries:** Allow users to add detailed nutritional data.
 
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Feel free to contribute! Open issues and PRs are welcome. 🚀
