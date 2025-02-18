@@ -1,18 +1,45 @@
-import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { Component, inject } from '@angular/core';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
-  imports: [FormsModule],
+  imports: [ReactiveFormsModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
-  password: string | undefined;
-  username: string | undefined;
+  loginForm: FormGroup;
+  fb = inject(FormBuilder);
+  authService = inject(AuthService);
+  router = inject(Router);
 
-  onSubmit() {  
-    console.log('Username: ' + this.username);
-    console.log('Password: ' + this.password);
+  constructor() {
+    this.loginForm = this.fb.group({
+      email: ['', Validators.required],
+      password: ['', Validators.required]
+    });
   }
+
+  ngOnInit(): void {
+
+  }
+
+  onLogin(): void {
+    if (this.loginForm.valid) {
+      const credentials = this.loginForm.value;
+      this.authService.login(credentials).subscribe(
+        {
+          next: (response) => {
+            this.router.navigate(['/home']);
+          },
+          error: (error) => {
+            console.log(error);
+          }
+        }
+      );
+    }
+  }
+
 }
