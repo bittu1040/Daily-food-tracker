@@ -28,7 +28,7 @@
     background: var(--dynamic-bg-color);
     color: var(--dynamic-text-color);
     border: 1px solid var(--dynamic-text-color);
-    opacity: 0.5;
+    opacity: 0.8;
 }
 
 .form-control:focus {
@@ -38,5 +38,5 @@
 
 .form-control::placeholder {
     color: var(--dynamic-text-color);
-    opacity: 0.5;
+    opacity: 0.9;
 }
