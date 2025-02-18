@@ -4,7 +4,10 @@
         <div class="d-flex align-items-center">
             <!-- <i class="fas fa-moon" (click)="toggleTheme()" style="cursor: pointer;"></i> -->
             <input class="fa-solid fa-fill" type="color" (input)="changeColor($event)" name="" id="">
-           <a href="https://github.com/bittu1040/Daily-food-tracker" target="_blank" style="margin-left: 20px;"> <i class="fa-brands fa-github"></i> </a>
+           <a href="https://github.com/bittu1040/Daily-food-tracker" target="_blank" style="margin-left: 20px;"></a>
+           @if(authService.isLoggedIn()){
+            <button class="btn logout-button ms-3" (click)="logout()">Logout</button>
+           }
         </div>
     </div>
 </nav>

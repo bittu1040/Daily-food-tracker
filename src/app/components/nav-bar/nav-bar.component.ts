@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav-bar',
@@ -9,6 +11,8 @@ import { Component } from '@angular/core';
 export class NavBarComponent {
 
   isLightTheme = false;
+  authService= inject(AuthService);
+  router = inject(Router);
 
   toggleTheme() {
     this.isLightTheme = !this.isLightTheme;
@@ -34,6 +38,11 @@ export class NavBarComponent {
     document.documentElement.style.setProperty('--dynamic-primary-color', colorCombination.primary);
     document.documentElement.style.setProperty('--dynamic-bg-color', colorCombination.background);
     document.documentElement.style.setProperty('--dynamic-text-color', textColor);
+  }
+
+  logout(): void {
+    this.authService.logout();
+    this.router.navigate(['/login']);
   }
 
   generateColorCombination(baseColor: string): { primary: string, background: string, text: string } {
