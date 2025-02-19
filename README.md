@@ -45,7 +45,7 @@
 
 ```sh
 # Clone the repository
-git clone https://github.com/your-repo/daily-food-tracker.git
+git clone https://github.com/bittu1040/Daily-food-tracker.git
 cd daily-food-tracker
 
 # Install dependencies

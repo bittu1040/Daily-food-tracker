@@ -28,3 +28,15 @@
 .theme-toggle:hover {
     opacity: 0.8;
 }
+
+
+.contribute-button {
+    border: none;
+    margin-left: 16px;
+    background-color: var(--dynamic-primary-color);
+}
+
+.fa-brands{
+    color: var(--dynamic-text-color);
+    font-size: 1.4rem;
+}
