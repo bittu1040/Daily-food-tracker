@@ -1,9 +1,9 @@
 @use 'bootstrap';
-@import 'ngx-toastr/toastr';
+@use 'ngx-toastr/toastr';
 
 :root {  // default dark theme
     --primary-color: #15384d;
-    --background-color: #cecece;
+    --background-color: #ffffff;
     --text-color: #ffffff;
     --dynamic-primary-color: var(--primary-color);
     --dynamic-bg-color: var(--background-color);
