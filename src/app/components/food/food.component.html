@@ -2,39 +2,38 @@
   <h3>This is your Food Tracker</h3>
   <div class="card mt-4">
     <div class="card-body">
-  <form [formGroup]="foodForm" (ngSubmit)="onAddFood()" class="row g-3 align-items-center">
-      <div class="col-md-4">
-        <input type="text" class="form-control" formControlName="name" placeholder="Enter food name">
-      </div>
-      <div class="col-md-4">
-        <input type="text" class="form-control" formControlName="quantity" placeholder="Enter quantity">
-      </div>
-      <div class="col-md-4 text-end">
-        <button type="submit" class="btn btn-primary" [disabled]="foodForm.invalid">Add Food</button>
-      </div>
-
-  </form>
+      <form [formGroup]="foodForm" (ngSubmit)="onAddFood()" class="row g-3 align-items-center">
+        <div class="col-md-4">
+          <input type="text" class="form-control" formControlName="name" placeholder="Enter food name">
+        </div>
+        <div class="col-md-4">
+          <input type="text" class="form-control" formControlName="quantity" placeholder="Enter quantity">
+        </div>
+        <div class="col-md-4 text-end">
+          <button type="submit" class="btn btn-primary" [disabled]="foodForm.invalid">Add Food</button>
+        </div>
+      </form>
+    </div>
   </div>
-  </div>
-
+  
   <div class="card mt-4">
     <div class="card-body">
-  @if(foodList.length > 0) {
-    <ul class="list-group">
-      @for (food of foodList; track $index) {
-      <li class="d-flex justify-content-between align-items-center mb-3">
-        {{ food.name }} - {{ food.quantity }} - {{ food.date | date: 'medium' }}
-        <button class="btn btn-danger btn-sm" (click)="onDeleteFood(food._id)">Delete</button>
-      </li>
+      @if(foodList.length > 0) {
+      <ul class="list-group">
+        @for (food of foodList; track $index) {
+        <li class="d-flex justify-content-between align-items-center mb-3">
+          {{ food.name }} - {{ food.quantity }} - {{ food.date | date: 'medium' }}
+          <button class="btn btn-danger btn-sm" (click)="onDeleteFood(food._id)">Delete</button>
+        </li>
+        }
+      </ul>
       }
-    </ul>
-  }
-  @else {    
-    <div class="d-flex justify-content-center align-items-center" style="height: 40vh;">
-      <p>No food added yet</p>
+      @else {
+      <div class="d-flex justify-content-center align-items-center" style="height: 40vh;">
+        <p>No food added yet</p>
+      </div>
+      }
     </div>
-  }
-  </div>
   </div>
 
 </div>
