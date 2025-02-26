@@ -1,0 +1,24 @@
+<div class="container mt-4">
+    <h2>This is your Food Tracker</h2>
+    <form [formGroup]="foodForm" (ngSubmit)="onAddFood()">
+      <div class="mb-3">
+        <label for="name" class="form-label">Food Name</label>
+        <input type="text" class="form-control" formControlName="name" placeholder="Enter food name">
+      </div>
+      <div class="mb-3">
+        <label for="calories" class="form-label">Calories</label>
+        <input type="number" class="form-control" formControlName="calories" placeholder="Enter calories">
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="foodForm.invalid">Add Food</button>
+    </form>
+  
+    <h3 class="mt-4">Food List</h3>
+    <ul class="list-group">
+        @for (food of foodList; track $index) {
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                {{ food.name }} - {{ food.calories }} calories
+                <button class="btn btn-danger btn-sm" (click)="onDeleteFood(food._id)">Delete</button>
+            </li>
+        }
+    </ul>
+  </div>
