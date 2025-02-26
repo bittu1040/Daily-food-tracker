@@ -1,17 +1,25 @@
-<nav class="navbar navbar-expand-lg">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
-        <a class="navbar-brand" routerLink="/">Daily food tracker</a>
-        <div class="d-flex align-items-center">
-            <!-- <i class="fas fa-moon" (click)="toggleTheme()" style="cursor: pointer;"></i> -->
-            <input class="fa-solid fa-fill" type="color" (input)="changeColor($event)" name="" id="">
-            <button class="contribute-button">
-                <a href="https://github.com/bittu1040/Daily-food-tracker" target="_blank">
-                    <i class="fa-brands fa-github"></i>
-                </a>
-            </button>
-           @if(authService.isLoggedIn()){
-            <button class="btn logout-button ms-3" (click)="logout()">Logout</button>
-           }
-        </div>
+      <a class="navbar-brand" routerLink="/">Daily Food Tracker</a>
+      <div class="dropdown ms-auto">
+        <button class="btn btn-secondary" type="button" id="userMenu" data-bs-toggle="dropdown">
+            <i class="fa-solid fa-user"></i>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenu">
+          <li class="dropdown-item">
+            <input type="color" (input)="changeColor($event)">
+          </li>
+          <li>
+            <a class="dropdown-item" href="https://github.com/bittu1040/Daily-food-tracker" target="_blank">
+              <i class="fa-brands fa-github me-2"></i> GitHub
+            </a>
+          </li>
+          @if(authService.isLoggedIn()){
+          <li>
+            <a class="dropdown-item" (click)="logout()"><i class="fa-solid fa-right-from-bracket me-2"></i>Logout</a>
+          </li>
+        }
+        </ul>
+      </div>
     </div>
-</nav>
+  </nav>

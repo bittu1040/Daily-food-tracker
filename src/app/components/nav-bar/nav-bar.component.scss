@@ -10,6 +10,14 @@
     color: var(--dynamic-text-color);
 }
 
+.dropdown-menu{
+    background-color: var(--dynamic-primary-color);
+}
+
+.dropdown-item{
+    color: var(--dynamic-text-color);
+}
+
 .logout-button{
     color: var(--dynamic-text-color);
     border: 1px solid var(--dynamic-text-color);
