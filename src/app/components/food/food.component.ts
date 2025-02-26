@@ -1,10 +1,11 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { FoodService } from '../../services/food.service';
+import { DatePipe, JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-food',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, DatePipe],
   templateUrl: './food.component.html',
   styleUrl: './food.component.scss'
 })
@@ -19,7 +20,7 @@ export class FoodComponent {
   constructor() {
     this.foodForm = this.fb.group({
       name: ['', Validators.required],
-      calories: ['', Validators.required]
+      quantity: ['', Validators.required]
     });
     this.loadFoodList();
   }

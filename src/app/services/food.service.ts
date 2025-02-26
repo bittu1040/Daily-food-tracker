@@ -12,7 +12,7 @@ export class FoodService {
   
   constructor() { }
 
-  addFood(food: { name: string; calories: number }): Observable<any> {
+  addFood(food: { name: string; quantity: string }): Observable<any> {
     return this.http.post(`${this.apiUrl}/food/add`, food);
   }
 
