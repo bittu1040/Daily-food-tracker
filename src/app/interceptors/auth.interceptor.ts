@@ -9,7 +9,6 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
   const router = inject(Router);
   const toastr = inject(ToastrService);
 
-  console.log('authToken', authToken);
   const authReq = req.clone({
     setHeaders: {
       Authorization: `Bearer ${authToken}`
