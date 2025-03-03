@@ -5,7 +5,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 
 @Component({
   selector: 'app-daily-food-target',
-  imports: [NgIf, NgFor, ReactiveFormsModule],
+  imports: [ ReactiveFormsModule],
   templateUrl: './daily-food-target.component.html',
   styleUrl: './daily-food-target.component.scss'
 })
